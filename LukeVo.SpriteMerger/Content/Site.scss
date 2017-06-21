@@ -39,12 +39,18 @@ header {
     }
 }
 
-footer.fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+footer {
+    padding-top: 15px;
+
+    &.fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
+
+
 
 $filePanelHeight: 250px;
 $filePanelItemMargin: 10px;
@@ -130,6 +136,6 @@ $filePanelItemSize: $filePanelHeight - $filePanelItemMargin * 2;
 }
 
 .img-preview {
-    border:  1px solid black;
+    border: 1px solid black;
     margin-top: 5px;
 }

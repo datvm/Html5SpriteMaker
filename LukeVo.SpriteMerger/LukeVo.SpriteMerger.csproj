@@ -174,7 +174,9 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="LICENSE.MD" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="README.MD" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\cellbackground.png" />
     <Content Include="Scripts\bootstrap.js" />

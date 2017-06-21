@@ -1,31 +1,117 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    this.ViewBag.Title = "Sprite Maker";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<input id="txt-files" class="hidden" type="file" accept="images/*" multiple />
+
+<div class="page-header">
+    <h1>
+        Online Sprite Maker
+        <br />
+        <small>
+            A small HTML5 Image concatenation for making sprites.
+        </small>
+    </h1>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div>
+    <h3>
+        Step 1: Choose files
+        <br />
+        <small>
+            The files are not uploaded anywhere, so you do not need to worry about the Internet data usage or privacy.
+        </small>
+    </h3>
+
+    <div id="pnl-files" class="file-panel">
+        <ul id="lst-files" class="file-list"></ul>
+
+        <div class="placeholder">
+            <p>Click an empty space or drag and drop files here</p>
+            <p class="icon"><i class="fa fa-plus-circle" aria-hidden="true"></i></p>
+        </div>
     </div>
 </div>
+
+<div>
+    <h3>
+        Step 2: Choose settings
+    </h3>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Number of columns</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="txt-col" type="number" class="form-control" value="3" />
+                            <span class="input-group-addon">px</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Margin</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="txt-margin" type="number" class="form-control" value="0" />
+                            <span class="input-group-addon">px</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="checkbox">
+                            <label>
+                                <input id="chk-power-2" type="checkbox" />
+                                Size must be power of 2
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p>
+                Sprite size:
+                <span id="lbl-sprite-size">N/A</span>
+            </p>
+
+            <p>
+                Estimated image size:
+                <span id="lbl-estimated-size">N/A</span>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h3>
+        Step 3: Generate and Download
+    </h3>
+
+    <div>
+        <button id="btn-generate" class="btn btn-primary btn-lg">Generate Image</button>
+        <button id="btn-download" class="btn btn-primary btn-lg hidden">Download Image</button>
+    </div>
+
+    <p id="lbl-download" class="hidden">You can save the image by right clicking the image and click "Save Image as", or click the Download button above.</p>
+
+     <canvas id="canvas" class="img-preview"></canvas>
+</div>
+
+<template id="template-image">
+    <li>
+        <button class="btn btn-delete"><i class="fa fa-trash-o"></i></button>
+        <img class="file-image" />
+    </li>
+</template>
+
+@section scripts {
+
+    <script defer src="~/Scripts/main.js"></script>
+
+}

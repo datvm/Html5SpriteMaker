@@ -1,0 +1,135 @@
+﻿$primaryColor: white;
+$secondaryColor: #f2f2f2;
+
+$headerSize: 50px;
+
+body {
+    background: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+}
+
+input[type=number] {
+    text-align: right;
+}
+
+
+header, footer {
+    background: $secondaryColor;
+    min-height: $headerSize;
+}
+
+header {
+    .brand {
+        h1 {
+            font-size: 20px;
+            margin: 0 15px;
+            padding-top: 10px;
+        }
+    }
+}
+
+footer.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+$filePanelHeight: 250px;
+$filePanelItemMargin: 10px;
+$filePanelItemSize: $filePanelHeight - $filePanelItemMargin * 2;
+
+.file-panel {
+    position: relative;
+    width: 100%;
+    height: $filePanelHeight;
+    border: 1px dashed #C0C0C0;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .placeholder {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 18px;
+        color: #808080;
+
+        p.icon {
+            font-size: 50px;
+        }
+    }
+
+    ul.file-list {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        white-space: nowrap;
+
+        > li {
+            position: relative;
+            display: inline-block;
+            width: $filePanelItemSize;
+            height: $filePanelItemSize;
+            margin: $filePanelItemMargin;
+            border: 1px solid #f2f2f2;
+            border-radius: 3px;
+            cursor: pointer;
+            background-image: url(/Images/cellbackground.png);
+            background-repeat: repeat;
+
+
+            &:hover {
+                border-color: #C0C0C0;
+
+                > .btn.btn-delete {
+                    display: block;
+                }
+            }
+
+            > img {
+                display: inline-block;
+                position: absolute;
+                max-width: $filePanelItemSize;
+                max-height: $filePanelItemSize;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                z-index: 1;
+            }
+
+            > .btn.btn-delete {
+                position: absolute;
+                right: 1px;
+                top: 1px;
+                display: none;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+.btn.btn-primary {
+    border-color: #C0C0C0;
+    background-color: #808080;
+}
+
+.img-preview {
+    border:  1px solid black;
+    margin-top: 5px;
+}
